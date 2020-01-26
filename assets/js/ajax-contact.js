@@ -10,15 +10,21 @@ $(function() {
 	$(form).submit(function(e) {
 		// Stop the browser from submitting the form.
 		e.preventDefault();
-
+		var jsonData = {};
 		// Serialize the form data.
-		var formData = $(form).serialize();
+		  var formData = $(form).serializeArray();
+		  $.each(formData, function(i, field){
+			jsonData[field.name] = field.value;
+		  });	
 
+		  console.log(jsonData);
+		  
 		// Submit the form using AJAX.
 		$.ajax({
 			type: 'POST',
 			url: $(form).attr('action'),
-			data: formData
+			data: JSON.stringify(jsonData),
+			contentType: 'application/json'
 		})
 		.done(function(response) {
 			// Make sure that the formMessages div has the 'success' class.
