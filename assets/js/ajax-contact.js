@@ -28,7 +28,7 @@ $(function() {
 		})
 		.done(function(response) {
 			// Make sure that the formMessages div has the 'success' class.
-			$(window).alert("Form Submitted");
+			window.alert("Form Submitted");
 
 			// Clear the form.
 			$('#contact-form input,#contact-form textarea').val('');
@@ -38,9 +38,9 @@ $(function() {
 
 			// Set the message text.
 			if (data.responseText !== '') {
-				$(window).alert(data.responseText);
+				window.alert(data.responseText);
 			} else {
-				$(window).alert('Oops! An error occured and your message could not be sent.');
+				window.alert('Oops! An error occured and your message could not be sent.');
 			}
 		});
 	});
