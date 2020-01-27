@@ -16,8 +16,6 @@ $(function() {
 		  $.each(formData, function(i, field){
 			jsonData[field.name] = field.value;
 		  });	
-
-		  console.log(jsonData);
 		  
 		// Submit the form using AJAX.
 		$.ajax({
